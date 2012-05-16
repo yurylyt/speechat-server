@@ -8,7 +8,7 @@ import java.util.HashMap;
  */
 public class ChatHouseImpl implements ChatHouse {
     private HashMap<String, ChatRoom> rooms = new HashMap<String, ChatRoom>();
-    private static final ChatHouse instance = new ChatHouseImpl();
+    private static final ChatHouseImpl instance = new ChatHouseImpl();
     
     public static ChatHouse get() {
         return instance;
@@ -16,9 +16,11 @@ public class ChatHouseImpl implements ChatHouse {
     
     @Override
     public ChatRoom getRoom(String room) {
-        if (!rooms.containsKey(room)) {
-            rooms.put(room, new ChatRoomImpl(room, new PasswordNameGenerator()));
-        }
         return rooms.get(room);
+    }
+
+    @Override
+    public void createRoom(String room) {
+        rooms.put(room, new ChatRoomImpl(room, new PasswordNameGenerator()));
     }
 }

@@ -13,4 +13,6 @@ public interface ChatRoom {
     Collection<Message> get(String member);
     
     void add(Message message);
+
+    int getUsersCount();
 }

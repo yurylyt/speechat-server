@@ -67,4 +67,9 @@ public class ChatRoomImpl implements ChatRoom {
             entries.add(message);
         }
     }
+
+    @Override
+    public int getUsersCount() {
+        return newEntries.size();
+    }
 }

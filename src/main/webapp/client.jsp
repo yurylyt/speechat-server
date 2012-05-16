@@ -3,7 +3,7 @@
 <head>
     <%
         String path = request.getPathInfo();
-        
+
         String[] chunks = path != null ? path.split("/") : null;
         if (chunks == null || chunks.length <= 1) {
             pageContext.forward("noRoom.html");
@@ -13,17 +13,18 @@
         String member = null;
         if (chunks.length > 2)
             member = chunks[2];
-
     %>
     <link rel="stylesheet" type="text/css" href="/resources/style.css"/>
     <!--[if !IE]>-->
-    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px)" 
-          href="/resources/style-mobile.css" />
+    <link type="text/css" rel="stylesheet"
+          media="only screen and (max-device-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px)"
+          href="/resources/style-mobile.css"/>
     <!--<![endif]-->
-    
+
     <script type="text/javascript" src="/resources/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/resources/jquery.dateFormat-1.0.js"></script>
     <script type="text/javascript">
+        var REST_URL = "/rest/chat/";
         var room = "<%= room%>";
         var member = '<%= member != null ? member : "" %>';
         var timer;
@@ -33,7 +34,7 @@
             else
                 init();
         });
-        
+
         function init() {
             document.title = '#' + room + ' @ SpeeChat';
             callServer();
@@ -43,13 +44,23 @@
                 return false;
             });
         }
+        
+        function codeHandlers() {
+            return {
+                404: function() {document.location = "/client"}
+            }
+        }
 
         function register() {
-            $.ajax({url:"/rest/" + room }).done(function(data) {
-                document.location = document.location + "/" + data;
+
+
+            $.ajax({url:REST_URL + room, statusCode:codeHandlers()}).done(function (data) {
+                path = document.location.pathname;
+                if (path[path.length - 1] != "/")
+                    data = "/" + data;
+                document.location = document.location + data;
             });
         }
-        
 
         function updateContainer(data) {
             var response = eval(data);
@@ -67,10 +78,11 @@
         function poll() {
             callServer("/new");
         }
-        
+
         function callServer(suffix) {
             if (!suffix) suffix = '';
-            $.ajax({url:"/rest/" + room + "/" + member + suffix}).done(updateContainer);
+            $.ajax({url:REST_URL + room + "/" + member + suffix, statusCode: codeHandlers()})
+                    .done(updateContainer);
         }
 
         function post(room, member) {
@@ -84,22 +96,22 @@
 
             $.ajax({
                        type:"POST",
-                       url:"/rest/" + room + "/" + member,
+                       url:REST_URL + room + "/" + member,
                        data:{message:msg}
-                        
-                   }).always(postPost).fail(function(){failed("post")})
+
+                   }).always(postPost).fail(function () {failed("post")})
         }
         function postPost() {
             $("#message").removeAttr('disabled');
             $("#submit").removeAttr('disabled');
         }
-        
+
         function cancelPoll() {
             if (timer) {
                 clearTimeout(timer);
             }
         }
-        
+
         function failed(msg) {
             alert(msg + " failed. Try again later");
         }

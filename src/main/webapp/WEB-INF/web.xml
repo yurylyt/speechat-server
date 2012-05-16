@@ -38,5 +38,5 @@
         <servlet-name>speechat-rest</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
-        
+    
 </web-app>

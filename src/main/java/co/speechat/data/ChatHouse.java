@@ -6,4 +6,6 @@ package co.speechat.data;
  */
 public interface ChatHouse {
     ChatRoom getRoom(String room);
+
+    void createRoom(String room);
 }
