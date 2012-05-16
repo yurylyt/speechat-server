@@ -23,5 +23,5 @@ public class AdminAuthResource {
         if (!authToken.equals(requestToken))
             throw new WebApplicationException(Status.FORBIDDEN);
         return new AdminResource();
-    } 
+    }
 }

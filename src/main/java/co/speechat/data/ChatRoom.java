@@ -15,4 +15,5 @@ public interface ChatRoom {
     void add(Message message);
 
     int getUsersCount();
+    
 }

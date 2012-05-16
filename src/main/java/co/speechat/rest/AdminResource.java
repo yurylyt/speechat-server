@@ -33,8 +33,8 @@ public class AdminResource {
     @GET
     @Path("/{room}/users")
     @Produces(MediaType.TEXT_PLAIN)
-    public int getUserCount(@PathParam("room") String room) {
+    public String getUserCount(@PathParam("room") String room) {
         ChatRoom chatRoom = chatHouse.getRoom(room);
-        return chatRoom != null ? chatRoom.getUsersCount() : 0;
+        return "" + (chatRoom != null ? chatRoom.getUsersCount() : 0);
     }
 }

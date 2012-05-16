@@ -23,4 +23,5 @@ public class ChatHouseImpl implements ChatHouse {
     public void createRoom(String room) {
         rooms.put(room, new ChatRoomImpl(room, new PasswordNameGenerator()));
     }
+    
 }
