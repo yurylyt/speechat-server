@@ -1,10 +1,20 @@
+body {
+    margin: auto;
+}
 #container {
-    overflow: scroll;
+    overflow-y: scroll;
     height: 90%;
+    margin: 15px 0px 0px 30px;
 }
 
 .message {
     padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    background-color: #CAE1FF;
+    width: 530px;
+    margin-bottom: 10px;
+    font-size: 23px;
 }
 
 .author {
@@ -24,9 +34,40 @@
 
 .date {
     font-style: italic;
-    color: #d3d3d3;
+    /*color: #d3d3d3;*/
+    font-size: 11px;
 }
 
 .message-input {
-    width: 50%;
+    width: 515px;
+    font-size: 16px;
 }
+#author {
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+#submit {
+    width: 80px;
+    height: 30px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: #87CEEB;
+    color: white;
+}
+
+#submit:active {
+    background-color: #1E90FF;
+}
+
+#dont-button {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: #FFA07A;
+    height: 30px;
+}
+
+#dont-button:active {
+    background-color: #E9967A;
+}
+
