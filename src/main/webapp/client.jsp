@@ -20,6 +20,7 @@
           media="only screen and (max-device-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px)"
           href="/resources/style-mobile.css"/>
     <!--<![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Iceberg' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="/resources/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/resources/jquery.dateFormat-1.0.js"></script>
@@ -36,7 +37,9 @@
         });
 
         function init() {
-            document.title = '#' + room + ' @ SpeeChat';
+            var title = '#' + room + ' @ SpeeChat';
+            $("#head-bar").text(title);
+            document.title = title;
             callServer();
             $("#author").text(member);
             $("#post").submit(function () {
@@ -118,6 +121,7 @@
     </script>
 </head>
 <body>
+<div id="head-bar"></div>
 <div id="container">
 </div>
 <div class="form-div">

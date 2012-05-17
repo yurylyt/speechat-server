@@ -19,8 +19,6 @@
 }
 
 #container {
-    overflow-y: scroll;
-    height: 90%;
 }
 
 .message {
