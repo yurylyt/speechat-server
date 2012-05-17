@@ -1,16 +1,18 @@
 package co.speechat.data;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Author: Iurii Lytvynenko
  */
 public class ChatRoomImpl implements ChatRoom {
-    private Collection<Message> messages = new LinkedList<Message>();
-    private Map<String, Collection<Message>> newEntries = new HashMap<String, Collection<Message>>();
+    private List<Message> messages = new CopyOnWriteArrayList<Message>();
+    private Map<String, Integer> reads = new HashMap<String, Integer>();
     private NameGenerator nameGenerator;
     private String name;
 
@@ -27,17 +29,19 @@ public class ChatRoomImpl implements ChatRoom {
     
     @Override
     public Collection<Message> get(String member) {
-        if (!newEntries.containsKey(member)) {
+        if (!reads.containsKey(member)) {
             member = register(member);
         }
-        Collection<Message> msgs = newEntries.get(member);
+        int index = reads.get(member);
         dropNewEntries(member);
-        return msgs;
+        if (index >= messages.size())
+            return Collections.emptyList();
+        return messages.subList(index, messages.size());
     }
 
     private void dropNewEntries(String member) {
         if (isValid(member))
-            newEntries.put(member, new LinkedList<Message>());
+            reads.put(member, messages.size());
     }
 
     private boolean isValid(String member) {
@@ -52,7 +56,7 @@ public class ChatRoomImpl implements ChatRoom {
     private String register(String member) {
         if (!isValid(member))
             member = genMemberId();
-        newEntries.put(member, messages);
+        reads.put(member, 0);
         return member;
     }
 
@@ -63,13 +67,10 @@ public class ChatRoomImpl implements ChatRoom {
     @Override
     public void add(Message message) {
         messages.add(message);
-        for (Collection<Message> entries : newEntries.values()) {
-            entries.add(message);
-        }
     }
 
     @Override
     public int getUsersCount() {
-        return newEntries.size();
+        return reads.size();
     }
 }
