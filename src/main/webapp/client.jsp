@@ -120,12 +120,12 @@
 <body>
 <div id="container">
 </div>
-<div>
+<div class="form-div">
     <form id="post" action="" method="post">
         <label for="message" id="author" class="author-label"></label>:
         <input name="message" id="message" class="message-input" maxlength="140"/>
         <input type="submit" id="submit" value="Post" class="post-button"/>
-        <button value="Stop auto refresh" onclick="cancelPoll()">Don't auto-refresh</button>
+        <button value="Stop auto refresh" onclick="cancelPoll()" id="dont-button">Don't auto-refresh</button>
     </form>
 </div>
 </body>
