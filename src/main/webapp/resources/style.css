@@ -19,8 +19,6 @@
 }
 
 #container {
-    overflow-y: scroll;
-    height: 90%;
 }
 
 .message {
@@ -89,10 +87,21 @@
     font-family: 'Tahoma', sans-serif;
     padding: 5px 5px 11px 5px;    
 }
+<<<<<<< HEAD
 .author-label {
     margin-left: 10px;
     font-size: 23px;
     font-weight: bold;
+=======
+
+.form-div {
+    clear: both;
+}
+
+#author {
+    margin-left: 7px;
+    font-size: 20px;
+>>>>>>> bba2e80040e6ab628bf43e7592da9588bd435f1c
 }
 
 #submit {

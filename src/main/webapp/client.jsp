@@ -20,6 +20,7 @@
           media="only screen and (max-device-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px)"
           href="/resources/style-mobile.css"/>
     <!--<![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Iceberg' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="/resources/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/resources/jquery.dateFormat-1.0.js"></script>
@@ -36,7 +37,9 @@
         });
 
         function init() {
-            document.title = '#' + room + ' @ SpeeChat';
+            var title = '#' + room + ' @ SpeeChat';
+            $("#head-bar").text(title);
+            document.title = title;
             callServer();
             $("#author").text(member);
             $("#post").submit(function () {
@@ -75,6 +78,7 @@
             });
             timer = setTimeout(poll, 2000);
         }
+        
         function poll() {
             callServer("/new");
         }
@@ -104,6 +108,8 @@
         function postPost() {
             $("#message").removeAttr('disabled');
             $("#submit").removeAttr('disabled');
+            clearTimeout(timer);
+            poll(); // Call the server immediately
         }
 
         function cancelPoll() {
@@ -118,14 +124,15 @@
     </script>
 </head>
 <body>
+<div id="head-bar"></div>
 <div id="container">
 </div>
-<div>
+<div class="form-div">
     <form id="post" action="" method="post">
         <label for="message" id="author" class="author-label"></label>:
         <input name="message" id="message" class="message-input" maxlength="140"/>
         <input type="submit" id="submit" value="Post" class="post-button"/>
-        <button value="Stop auto refresh" onclick="cancelPoll()">Don't auto-refresh</button>
+        <button value="Stop auto refresh" onclick="cancelPoll()" id="dont-button">Don't auto-refresh</button>
     </form>
 </div>
 </body>
