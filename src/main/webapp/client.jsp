@@ -78,6 +78,7 @@
             });
             timer = setTimeout(poll, 2000);
         }
+        
         function poll() {
             callServer("/new");
         }
@@ -107,6 +108,8 @@
         function postPost() {
             $("#message").removeAttr('disabled');
             $("#submit").removeAttr('disabled');
+            clearTimeout(timer);
+            poll(); // Call the server immediately
         }
 
         function cancelPoll() {
