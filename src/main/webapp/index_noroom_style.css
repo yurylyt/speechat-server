@@ -1,0 +1,46 @@
+body {
+	margin: auto;
+}
+#no-room {
+    width: 650px;
+    height: 200px;
+    border: double 30px #FF6565;
+    margin-left: 320px;
+    margin-top: 200px;
+    -moz-transform:rotate(-10deg);
+    -webkit-transform:rotate(-10deg);
+}
+#scripture {
+	background-color: #FF6565;
+	height: 202px;
+	margin-top: -1px;
+	color: #F5F5F5;
+	font-size: 63px;
+	text-align: center;
+}
+
+#line-one {
+	-moz-transform:rotate(-50deg);
+    -webkit-transform:rotate(-50deg);
+    border: solid 2px #696969;
+    font-size: 1px;
+    background-color: #696969;
+    width: 548px;
+    position: absolute;
+    left: 208px;
+    top: 50px;
+    color: #696969;
+}
+
+#line-two {
+	-moz-transform:rotate(50deg);
+    -webkit-transform:rotate(50deg);
+    border: solid 2px #696969;
+    font-size: 1px;
+    background-color: #696969;
+    width: 230px;
+    position: absolute;
+    left: 808px;
+    top: 50px;
+    color: #696969;
+}
