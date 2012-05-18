@@ -9,6 +9,8 @@ body {
     margin-top: 200px;
     -moz-transform:rotate(-10deg);
     -webkit-transform:rotate(-10deg);
+    -moz-box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 #scripture {
 	background-color: #FF6565;
@@ -30,6 +32,8 @@ body {
     left: 208px;
     top: 50px;
     color: #696969;
+    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.5);
 }
 
 #line-two {
@@ -43,4 +47,72 @@ body {
     left: 808px;
     top: 50px;
     color: #696969;
+    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+
+/*index.html*/
+#index {
+    background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.13, #778899),
+    color-stop(0.82, #D3D3D3)
+);
+    background-image: -moz-linear-gradient(bottom, #898989 23%, #e3e3e3 72%);
+}
+
+#welcome-to {
+    font-size: 70px;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 1px 0px #fff;
+    color: #00BFFF;
+    margin-bottom: 0;
+}
+
+#theme {
+    font-size: 35px;
+    font-style: italic;
+    margin-left: 755px;
+    margin-top: 0;
+}
+
+#circle-button {
+    width: 200px;
+    height: 200px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    font-size: 18px;
+    text-align: center;
+    margin-left: 1000px;
+    margin-top: 200px;
+    margin-bottom: 52px;
+    background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.23, #98FB98),
+    color-stop(0.72, #7CFC00)
+);
+    background-image: -moz-linear-gradient(bottom, #98FB98 23%, #7CFC00 72%);
+    -moz-box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    color: #000080;
+    font-weight: bold;
+    text-shadow: 2px 1px 0px #fff;
+}
+
+#circle-button:active {
+    background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.23, #7CFC00),
+    color-stop(0.72, #98FB98)
+);
+    background-image: -moz-linear-gradient(bottom, #7CFC00 23%, #98FB98 72%);
+    text-shadow: 2px 1px 0px #000;
+    color: white;
 }
