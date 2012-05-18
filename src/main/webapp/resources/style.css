@@ -32,28 +32,11 @@
     margin-bottom: 10px;
     margin-left: 10px;
     font-size: 23px;
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 10px rgba(100, 100, 100, 0.5);
     box-shadow: 0 0 10px rgba(100, 100, 100, 0.5);
-    /*padding: 10px;*/
-    background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.05, #F5F5F5),
-    color-stop(0.9, #A8D8FF)
-);
-    
 }
 
 .message:nth-child(odd){
-    /*background: #A8F0FF;*/
-    background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.05, #F5F5F5),
-    color-stop(0.9, #A8F0FF)
-);
     
 }
 
