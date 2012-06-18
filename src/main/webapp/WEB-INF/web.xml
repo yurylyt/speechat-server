@@ -4,8 +4,10 @@
 
 <web-app>
     <display-name>Speechat Backend App</display-name>
+    <listener>
+        <listener-class>co.speechat.test.TestRoomListener</listener-class>
+    </listener>
     <servlet>
-
         <servlet-name>speechat-rest</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
         <init-param>
@@ -24,19 +26,8 @@
 
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet>
-        <servlet-name>client-servlet</servlet-name>
-        <jsp-file>/client.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>client-servlet</servlet-name>
-        <url-pattern>/client/*</url-pattern>
-    </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>speechat-rest</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
-    
 </web-app>
