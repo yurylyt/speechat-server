@@ -3,6 +3,8 @@ package co.speechat.data;
 import java.util.HashMap;
 
 /**
+ *
+ *
  * Author: Iurii Lytvynenko
  */
 public class ChatHouseImpl implements ChatHouse {
